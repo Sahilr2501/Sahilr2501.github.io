@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-title {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tic Tac Toe Game</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="projects.html">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <section id="overview">
+            <h2 class="section-title">Overview</h2>
+            <p>The Tic Tac Toe game is a classic two-player game implemented as a web application. The game allows players to take turns marking spaces in a 3x3 grid, with the goal of aligning three of their marks (either "X" or "O") in a row, column, or diagonal. The application is designed to be simple, interactive, and visually appealing, providing an engaging experience for users of all ages.</p>
+        </section>
+
+        <section id="features">
+            <h2 class="section-title">Features</h2>
+            <ul class="list-unstyled">
+                <li><strong>Interactive Game Board:</strong> A 3x3 grid where players can click to place their mark ("X" or "O"). The grid dynamically updates based on player input.</li>
+                <li><strong>Player Turns:</strong> The game alternates turns between Player X and Player O, with a visual glow effect indicating the current player’s turn.</li>
+                <li><strong>Winning Logic:</strong> The game detects winning combinations (rows, columns, or diagonals) and displays a congratulatory message when a player wins.</li>
+                <li><strong>Draw Detection:</strong> The game identifies and announces a draw when all cells are filled without a winner.</li>
+                <li><strong>Responsive Design:</strong> The game board is centered and responsive, ensuring it is displayed correctly on various screen sizes and devices.</li>
+                <li><strong>Celebratory Messages:</strong> Upon winning, the game displays an exciting congratulatory message with styled text to enhance the celebration.</li>
+                <li><strong>Game Restart:</strong> A restart button allows players to reset the game board and start a new game without refreshing the page.</li>
+            </ul>
+        </section>
+
+        <section id="technologies">
+            <h2 class="section-title">Technologies Used</h2>
+            <ul class="list-unstyled">
+                <li><strong>HTML:</strong> Provides the structure and content of the game board.</li>
+                <li><strong>CSS:</strong> Styles the game board, cells, and user interface elements, including dynamic glow effects and celebratory messages.</li>
+                <li><strong>JavaScript:</strong> Handles game logic, player interactions, winning conditions, and updates to the user interface.</li>
+            </ul>
+        </section>
+        
+        <section id="future-enhancements">
+            <h2 class="section-title">Future Enhancements</h2>
+            <ul class="list-unstyled">
+                <li><strong>AI Opponent:</strong> Implement a computer-controlled opponent with various difficulty levels.</li>
+                <li><strong>Score Tracking:</strong> Add functionality to track and display scores over multiple games.</li>
+                <li><strong>Thematic Customization:</strong> Allow users to choose different themes or skins for the game board.</li>
+            </ul>
+        </section>
+
+        <section id="contributing">
+            <h2 class="section-title">Contributing</h2>
+            <p>Contributions are welcome! Please open an issue or submit a pull request to contribute to the project.</p>
+        </section>
+    </main>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
