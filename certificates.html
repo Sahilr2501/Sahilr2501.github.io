@@ -1,112 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Certificates - Portfolio</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --dark-green: #181c14;
+      --dark-gray: #3c3d37;
+      --sage-green: #697565;
+      --cream: #ecdfcc;
+      --light-bg: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-gray);
+    }
+
+    .navbar {
+      background-color: var(--dark-green);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+    }
+
+    .nav-link {
+      color: var(--cream) !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      margin: 0 0.25rem;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--sage-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .active.nav-link::after {
+      width: 100%;
+    }
+
+    .hero-section {
+      background-color: var(--sage-green);
+      color: white;
+      padding: 5rem 0;
+      background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
+    }
+
+    .certificate-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      background-color: white;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .certificate-img-container {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .certificate-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .certificate-card:hover .certificate-img {
+      transform: scale(1.05);
+    }
+
+    .certificate-date {
+      background-color: var(--sage-green);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .issuer-badge {
+      background-color: rgba(105, 117, 101, 0.1);
+      color: var(--sage-green);
+      border-radius: 20px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .section-title {
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--sage-green);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .btn-outline-primary {
+      border-color: var(--sage-green);
+      color: var(--sage-green);
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--sage-green);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: var(--dark-green);
+      color: var(--cream);
+      padding: 2rem 0;
+    }
+
+    .social-icon {
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-icon:hover {
+      color: var(--sage-green) !important;
+      transform: translateY(-3px);
+    }
+
+    .certificate-title {
+      color: var(--dark-green);
+      transition: color 0.3s ease;
+    }
+
+    .certificate-card:hover .certificate-title {
+      color: var(--sage-green);
+    }
+
+    .coming-soon-card {
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--sage-green) !important;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand">Sahil Mondal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutme.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="certificates.html">Certificates</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center">
+        <i class="bi bi-code-slash me-2"></i>
+        Sahil Mondal
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="skills.html">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="certificates.html">Certificates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Certificates Section -->
-    <section class="container mt-5">
-      <h2 class="text-center mb-4">My Certificates</h2>
-      <div class="row d-flex align-items-stretch">
+  <!-- Hero Section -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">My Certifications</h1>
+      <p class="lead mb-0">Professional achievements and completed courses</p>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-5">
+      <h2 class="section-title fw-bold mb-5">Certification Highlights</h2>
+      <div class="row g-4">
         <!-- Certificate 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <img src="ai.jpg" class="card-img-top" alt="Certificate 1">
-            <div class="card-body">
-              <h5 class="card-title">Certificate of Completion for Introduction to Artificial Intelligence Course</h5>
-              <p class="card-text">This image displays a certificate awarded to Sahil Mondal for 
-                successfully completing a free online course titled "Introduction to Artificial 
-                Intelligence" offered by Great Learning Academy in May 2024.</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="certificate-card">
+            <div class="certificate-img-container">
+              <img src="images/ai.jpg" class="certificate-img" alt="AI Certificate">
+              <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
+                <small>May 2024</small>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
+                <h3 class="mb-0 fw-bold certificate-title">Introduction to AI</h3>
+              </div>
+              <p class="text-muted mb-4">
+                Successfully completed the AI course covering fundamental concepts of artificial intelligence.
+              </p>
+              <div class="mb-4">
+                <span class="issuer-badge">Great Learning Academy</span>
+              </div>
+              <a href="images/ai.jpg" class="btn btn-outline-primary w-100" target="_blank">
+                <i class="bi bi-eye me-1"></i> View Certificate
+              </a>
             </div>
           </div>
         </div>
+
         <!-- Certificate 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <img src="reactjs.jpg" class="card-img-top" alt="Certificate 3">
-            <div class="card-body">
-              <h5 class="card-title">Certificate of Completion for React JS Tutorial</h5>
-              <p class="card-text">This image displays a certificate awarded to Sahil Mondal for 
-                successfully completing a free online course titled "React JS Tutorial" offered by 
-                Great Learning Academy in May 2024.</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="certificate-card">
+            <div class="certificate-img-container">
+              <img src="images/reactjs.jpg" class="certificate-img" alt="React JS Certificate">
+              <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
+                <small>May 2024</small>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
+                <h3 class="mb-0 fw-bold certificate-title">React JS Tutorial</h3>
+              </div>
+              <p class="text-muted mb-4">
+                Completed comprehensive React JS training, mastering component-based architecture and state management.
+              </p>
+              <div class="mb-4">
+                <span class="issuer-badge">Great Learning Academy</span>
+              </div>
+              <a href="images/reactjs.jpg" class="btn btn-outline-primary w-100" target="_blank">
+                <i class="bi bi-eye me-1"></i> View Certificate
+              </a>
             </div>
           </div>
         </div>
+
         <!-- Certificate 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <img src="Data Structure in C.jpg" class="card-img-top" alt="Certificate 2">
-            <div class="card-body">
-              <h5 class="card-title">Certificate of Completion for Data Structures in C Course</h5>
-              <p class="card-text">This image displays a certificate awarded to Sahil Mondal for 
-                successfully completing a free online course titled "Data Structures in C" offered 
-                by Great Learning Academy in June 2024.</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="certificate-card">
+            <div class="certificate-img-container">
+              <img src="images/Data Structure in C.jpg" class="certificate-img" alt="Data Structures Certificate">
+              <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
+                <small>June 2024</small>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
+                <h3 class="mb-0 fw-bold certificate-title">Data Structures in C</h3>
+              </div>
+              <p class="text-muted mb-4">
+                Earned certification demonstrating proficiency in algorithms and data organization using C programming.
+              </p>
+              <div class="mb-4">
+                <span class="issuer-badge">Great Learning Academy</span>
+              </div>
+              <a href="images/Data Structure in C.jpg" class="btn btn-outline-primary w-100" target="_blank">
+                <i class="bi bi-eye me-1"></i> View Certificate
+              </a>
             </div>
           </div>
         </div>
+
         <!-- Certificate 4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <img src="js.png" class="card-img-top" alt="Certificate 2">
-            <div class="card-body">
-              <h5 class="card-title">Certificate of Completion for Mastering JavaScript Fundamentals</h5>
-              <p class="card-text">This image displays a certificate awarded to Sahil Mondal for 
-                successfully completing the course "Mastering JavaScript Fundamentals" on August 20, 2024.
-                The certificate is issued by Geekster and signed by Sahil Miglani (Co-Founder) and 
-                Bittoo Aggarwal (Program Director).</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="certificate-card">
+            <div class="certificate-img-container">
+              <img src="images/js.png" class="certificate-img" alt="JavaScript Certificate">
+              <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
+                <small>August 2024</small>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
+                <h3 class="mb-0 fw-bold certificate-title">Mastering JavaScript</h3>
+              </div>
+              <p class="text-muted mb-4">
+                Certified in JavaScript fundamentals, including ES6+ features, DOM manipulation, and async programming.
+              </p>
+              <div class="mb-4">
+                <span class="issuer-badge">Geekster</span>
+              </div>
+              <a href="images/js.png" class="btn btn-outline-primary w-100" target="_blank">
+                <i class="bi bi-eye me-1"></i> View Certificate
+              </a>
             </div>
           </div>
         </div>
+
         <!-- Certificate 5 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <img src="aws.jpg" class="card-img-top" alt="Certificate 4">
-            <div class="card-body">
-              <h5 class="card-title">Certificate of Completion for AWS For Beginners</h5>
-              <p class="card-text">This image displays a certificate awarded to Sahil Mondal for successfully completing the course "AWS For Beginners" on August 2024. The certificate is issued by Great Learning Academy.</p>
+        <div class="col-lg-4 col-md-6">
+          <div class="certificate-card">
+            <div class="certificate-img-container">
+              <img src="images/aws.jpg" class="certificate-img" alt="AWS Certificate">
+              <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
+                <small>August 2024</small>
+              </div>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
+                <h3 class="mb-0 fw-bold certificate-title">AWS For Beginners</h3>
+              </div>
+              <p class="text-muted mb-4">
+                Completed AWS fundamentals course covering cloud computing concepts and core services.
+              </p>
+              <div class="mb-4">
+                <span class="issuer-badge">Great Learning Academy</span>
+              </div>
+              <a href="images/aws.jpg" class="btn btn-outline-primary w-100" target="_blank">
+                <i class="bi bi-eye me-1"></i> View Certificate
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty Card for Future Certificates -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 border-0 shadow-sm coming-soon-card">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
+              <i class="bi bi-plus-circle text-primary mb-3" style="font-size: 2.5rem;"></i>
+              <h5 class="text-primary">More Coming Soon</h5>
+              <p class="text-muted">Currently pursuing additional certifications to expand my skill set.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3 social-icon" target="_blank"><i
+              class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/Sahilr2501" class="text-white me-3 social-icon" target="_blank"><i
+              class="bi bi-github"></i></a>
+          <a href="mailto:sahilmondal9879@gmail.com" class="text-white social-icon"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

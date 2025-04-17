@@ -1,78 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technokhoj2024</title>
+    <title>Technokhoj2024 - Portfolio</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        .section-title {
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #333;
+        :root {
+            --dark-green: #181c14;
+            --dark-gray: #3c3d37;
+            --sage-green: #697565;
+            --cream: #ecdfcc;
+            --light-bg: #f8f9fa;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+            padding-top: 56px;
+        }
+
+        .navbar {
+            background-color: var(--dark-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin: 2rem 0;
+            color: var(--dark-green);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--sage-green);
+            bottom: 0;
+            left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: var(--sage-green);
+            border-radius: 50%;
+        }
+
+        .tech-badge {
+            background-color: rgba(105, 117, 101, 0.1);
+            color: var(--sage-green);
+            border-radius: 20px;
+            padding: 0.35rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
         footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            background-color: var(--sage-green);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Technokhoj2024</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="#">Technokhoj2024</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="projects.html">Projects</a>
+                        <a class="nav-link" href="projects.html"><i class="bi bi-arrow-left me-1"></i> Back to
+                            Projects</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Technokhoj2024</h1>
+            <p class="lead mb-0">An innovative platform for tech exploration and collaboration</p>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="container mt-5 pt-5">
+    <main class="container mb-5">
         <section id="overview">
-            <h2 class="section-title">Overview</h2>
-            <p>Technokhoj2024 is an innovative project designed to push the boundaries of technology and research. This platform provides a comprehensive environment for exploring new tech solutions, fostering creativity, and facilitating collaboration among enthusiasts and professionals in the field.</p>
+            <h2 class="section-title fw-bold">Overview</h2>
+            <p class="lead">Technokhoj2024 is an innovative project designed to push the boundaries of technology and
+                research.
+                This platform provides a comprehensive environment for exploring new tech solutions, fostering
+                creativity, and
+                facilitating collaboration among enthusiasts and professionals in the field.</p>
         </section>
 
         <section id="features">
-            <h2 class="section-title">Key Features</h2>
-            <ul class="list-unstyled">
-                <li><strong>Interactive Technology Exploration:</strong> An engaging environment for users to explore the latest in technology, including hands-on projects, tutorials, and research papers.</li>
-                <li><strong>Collaboration Tools:</strong> Features to facilitate collaboration among users, including discussion forums, project sharing, and feedback mechanisms.</li>
-                <li><strong>Resource Library:</strong> A comprehensive library of resources, including documentation, videos, and articles on various technological topics.</li>
-                <li><strong>Real-Time Updates:</strong> Stay updated with real-time notifications about new features, upcoming events, and important announcements.</li>
-                <li><strong>Customizable User Profiles:</strong> Users can create and manage their profiles, showcasing their projects, achievements, and interests.</li>
-                <li><strong>Advanced Search and Filtering:</strong> Easily find relevant content and resources using advanced search and filtering options.</li>
+            <h2 class="section-title fw-bold">Key Features</h2>
+            <ul class="feature-list list-unstyled">
+                <li class="mb-3"><strong>Interactive Technology Exploration:</strong> An engaging environment for users
+                    to explore
+                    the latest in technology, including hands-on projects, tutorials, and research papers.</li>
+                <li class="mb-3"><strong>Collaboration Tools:</strong> Features to facilitate collaboration among users,
+                    including discussion forums, project sharing, and feedback mechanisms.</li>
+                <li class="mb-3"><strong>Resource Library:</strong> A comprehensive library of resources, including
+                    documentation, videos, and articles on various technological topics.</li>
+                <li class="mb-3"><strong>Real-Time Updates:</strong> Stay updated with real-time notifications about new
+                    features, upcoming events, and important announcements.</li>
+                <li class="mb-3"><strong>Customizable User Profiles:</strong> Users can create and manage their
+                    profiles,
+                    showcasing their projects, achievements, and interests.</li>
+                <li class="mb-3"><strong>Advanced Search and Filtering:</strong> Easily find relevant content and
+                    resources
+                    using advanced search and filtering options.</li>
             </ul>
         </section>
 
         <section id="technologies">
-            <h2 class="section-title">Technologies Used</h2>
-            <ul class="list-unstyled">
-                <li><strong>Bootstrap:</strong> A front-end framework used for styling and creating a modern, responsive design.</li>
-            </ul>
+            <h2 class="section-title fw-bold">Technologies Used</h2>
+            <div class="mb-4">
+                <span class="tech-badge"><i class="bi bi-bootstrap me-1"></i> Bootstrap</span>
+                <span class="tech-badge"><i class="bi bi-filetype-html me-1"></i> HTML5</span>
+                <span class="tech-badge"><i class="bi bi-filetype-css me-1"></i> CSS3</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
+            </div>
+            <p>The platform leverages modern web technologies to deliver a responsive and interactive user experience.
+            </p>
         </section>
 
         <section id="purpose">
-            <h2 class="section-title">Purpose</h2>
-            <p>Technokhoj2024 was developed to serve as a hub for technology enthusiasts and professionals, offering a platform for exploring and discussing emerging tech trends. It aims to promote innovation, facilitate knowledge sharing, and provide valuable resources to its users.</p>
+            <h2 class="section-title fw-bold">Purpose</h2>
+            <p>Technokhoj2024 was developed to serve as a hub for technology enthusiasts and professionals, offering a
+                platform
+                for exploring and discussing emerging tech trends. It aims to promote innovation, facilitate knowledge
+                sharing,
+                and provide valuable resources to its users.</p>
         </section>
 
         <section id="outcome">
-            <h2 class="section-title">Outcome</h2>
-            <p>The project has successfully created a comprehensive platform for technology exploration and collaboration. It highlights the application of various technologies in building a user-friendly and interactive environment. The platform is designed to evolve with emerging trends and user feedback, ensuring its relevance and effectiveness in the tech community.</p>
+            <h2 class="section-title fw-bold">Outcome</h2>
+            <p>The project has successfully created a comprehensive platform for technology exploration and
+                collaboration. It
+                highlights the application of various technologies in building a user-friendly and interactive
+                environment. The
+                platform is designed to evolve with emerging trends and user feedback, ensuring its relevance and
+                effectiveness
+                in the tech community.</p>
         </section>
     </main>
-    <!-- Bootstrap JavaScript Bundle with Popper -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3" target="_blank"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Sahilr2501" class="text-white me-3" target="_blank"><i
+                            class="bi bi-github"></i></a>
+                    <a href="mailto:sahilmondal9879@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

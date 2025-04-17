@@ -1,122 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Projects - Portfolio</title>
+  <title>My Projects | Sahil Mondal - Portfolio</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
-    .card {
+    :root {
+      --dark-green: #181c14;
+      --dark-gray: #3c3d37;
+      --sage-green: #697565;
+      --sage-green-light: rgba(105, 117, 101, 0.1);
+      --cream: #ecdfcc;
+      --light-bg: #f8f9fa;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .navbar {
+      background-color: var(--dark-green);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-link {
+      color: var(--cream) !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem !important;
+      margin: 0 0.25rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--sage-green);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .active.nav-link::after {
+      width: 100%;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--sage-green), #5a6854);
+      color: white;
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      background-size: cover;
+      opacity: 0.2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+      background-color: white;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.03) 100%);
+      z-index: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-img-container {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.08);
+    }
+
+    .project-date {
+      background-color: var(--sage-green);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .tech-badge {
+      background-color: var(--sage-green-light);
+      color: var(--sage-green);
+      border-radius: 20px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      transition: var(--transition);
+    }
+
+    .tech-badge:hover {
+      background-color: var(--sage-green);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .section-title {
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: var(--sage-green);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .btn {
+      pointer-events: auto !important;
+    }
+
+    .btn-outline-primary {
+      border-color: var(--sage-green);
+      color: var(--sage-green);
+      font-weight: 500;
+      border-width: 2px;
+      transition: var(--transition);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--sage-green);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(105, 117, 101, 0.3);
+    }
+
+    footer {
+      background-color: var(--dark-green);
+      color: var(--cream);
+      padding: 3rem 0 2rem;
+      position: relative;
+    }
+
+    .social-icon {
+      color: var(--cream);
+      font-size: 1.2rem;
+      margin: 0 0.75rem;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .social-icon:hover {
+      color: var(--sage-green);
+      transform: translateY(-3px);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--sage-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 99;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--dark-green);
+      transform: translateY(-3px);
+    }
+
+    /* Project filter buttons */
+    .project-filters {
+      margin-bottom: 2.5rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background-color: transparent;
+      border: 2px solid var(--sage-green);
+      color: var(--sage-green);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--sage-green);
+      color: white;
+    }
+
+    /* Project hover overlay */
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(24, 28, 20, 0.8);
       display: flex;
       flex-direction: column;
-      height: 100%;
-      overflow: hidden; /* Ensures content does not overflow the card */
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 2;
     }
-    .card-body {
-      flex: 1;
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
     }
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for hover effects */
+
+    .overlay-btn {
+      margin: 0.5rem;
+      padding: 0.5rem 1.5rem;
     }
-    .card-img-top:hover {
-      transform: scale(1.1); /* Zoom effect on hover */
-      filter: brightness(80%); /* Optional: Darken image on hover */
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 5rem 0 4rem;
+      }
+
+      .section-title {
+        margin-bottom: 1.5rem;
+      }
+
+      .project-img-container {
+        height: 180px;
+      }
     }
   </style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand">Sahil Mondal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutme.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="certificates.html">Certificate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <i class="bi bi-code-slash me-2"></i>
+        Sahil Mondal
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="skills.html">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="certificates.html">Certificates</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="display-4 fw-bold mb-4">My Projects</h1>
+          <p class="lead mb-0">Showcasing my technical implementations and creative solutions</p>
         </div>
       </div>
-    </nav>
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-      <div class="container">
-        <h2 class="display-5 text-center mb-5">My Projects</h2>
-        <div class="row">
+    </div>
+  </section>
 
-          <!-- Project 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="prj3.png" class="card-img-top" alt="Tic Tac Toe Game">
-                <div class="card-body">
-                    <h5 class="card-title">Tic Tac Toe (August-2019)</h5>
-                    <p class="card-text">
-                        A classic Tic Tac Toe game implemented as a web application. Features include an interactive 3x3 grid, player turns with visual effects, dynamic win and draw detection, and a stylish celebratory message. Built using HTML, CSS, and JavaScript, the game is designed to be responsive and user-friendly.
-                    </p>
-                    <a href="tictactoe-details.html" class="btn btn-primary">View Details</a>
-                </div>
-            </div>        
-        </div>
-                   
-          
-        <!-- Project 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="prj1.png" class="card-img-top" alt="Online Auction System">
-            <div class="card-body">
-              <h5 class="card-title">Online Auction System (April-2020)</h5>
-              <p class="card-text">
-                The Online Auction System is a dynamic web application developed using 
-                PHP that facilitates secure and transparent bidding on listed items. 
-                Key features include user authentication, real-time bidding, automated 
-                winner selection, and integrated payment processing.
+  <!-- Projects Section -->
+  <section class="py-5 bg-light">
+    <div class="container ">
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+        <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
+
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-lg-4 col-md-6" data-category="game">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/prj3.png" class="project-img" alt="Tic Tac Toe Game">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2020</span>
+              <h3 class="mt-3 mb-3 fw-bold">Tic Tac Toe Game</h3>
+              <p class="text-muted mb-4">
+                A classic Tic Tac Toe game implemented as a web application with interactive 3x3 grid,
+                player turns with visual effects, and dynamic win/draw detection.
               </p>
-              <a href="online-auction-details.html" class="btn btn-primary">View Details</a>
+              <div class="mb-4">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+              </div>
+              <!-- Updated button with onclick event as fallback -->
+              <a href="tictactoe-details.html" class="btn btn-outline-primary w-100"
+                style="pointer-events: auto; position: relative; z-index: 3;">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-lg-4 col-md-6" data-category="fullstack web">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/prj1.png" class="project-img" alt="Online Auction System">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2023</span>
+              <h3 class="mt-3 mb-3 fw-bold">Online Auction System</h3>
+              <p class="text-muted mb-4">
+                A dynamic PHP web application for secure bidding with user authentication,
+                real-time bidding, and automated winner selection.
+              </p>
+              <div class="mb-4">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">PHP</span>
+                <span class="tech-badge">MySQL</span>
+              </div>
+              <a href="online-auction-details.html" class="btn btn-outline-primary w-100"
+                style="pointer-events: auto; position: relative; z-index: 3;">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
             </div>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img src="prj2.png" class="card-img-top" alt="Technokhoj2k24">
-            <div class="card-body">
-              <h5 class="card-title">Technokhoj2k24 (January-2024)</h5>
-              <p class="card-text">
-                Technokhoj2k24 is an innovative platform designed to foster 
-                technological exploration and learning. Built with a focus on 
-                interactivity and user engagement, this project aims to connect 
-                tech enthusiasts with the latest trends, tutorials, and challenges 
-                in the tech world.
+        <div class="col-lg-4 col-md-6" data-category="web">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/prj2.png" class="project-img" alt="Technokhoj2k24">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2024</span>
+              <h3 class="mt-3 mb-3 fw-bold">Technokhoj2k24</h3>
+              <p class="text-muted mb-4">
+                An innovative platform for tech exploration with interactive features
+                to connect enthusiasts with latest trends and challenges.
               </p>
-              <a href="technokhoj2k24-details.html" class="btn btn-primary">View Details</a>
+              <div class="mb-4">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">CSS</span>
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">Bootstrap</span>
+              </div>
+              <a href="technokhoj2k24-details.html" class="btn btn-outline-primary w-100"
+                style="pointer-events: auto; position: relative; z-index: 3;">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
             </div>
           </div>
-        </div> 
+        </div>
+
+        <!-- Project 4 - New -->
+        <div class="col-lg-4 col-md-6" data-category="web">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/weather-forecast-project-page.png" class="project-img" alt="Weather Dashboard">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2025</span>
+              <h3 class="mt-3 mb-3 fw-bold">Weather Dashboard</h3>
+              <p class="text-muted mb-4">
+                A responsive weather application that displays current conditions
+                and 5-day forecasts for any location worldwide.
+              </p>
+              <div class="mb-4">
+                <span class="tech-badge">JavaScript</span>
+                <span class="tech-badge">API Integration</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">Local Storage</span>
+              </div>
+              <a href="weather-forecast-project-page.html" class="btn btn-outline-primary w-100"
+                style="pointer-events: auto; position: relative; z-index: 3;">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 - New -->
+        <div class="col-lg-4 col-md-6" data-category="mobile">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/todo-list.png" class="project-img" alt="Task Manager Mobile App">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2025</span>
+              <h3 class="mt-3 mb-3 fw-bold">Task Manager App</h3>
+              <p class="text-muted mb-4">
+                A cross-platform mobile application for task management with cloud synchronization,
+                reminders, and collaborative features.
+              </p>
+              <div class="mb-4">
+                <span class="tech-badge">HTML</span>
+                <span class="tech-badge">Bootstrap</span>
+                <span class="tech-badge">React</span>
+              </div>
+              <a href="todo-list.html" class="btn btn-outline-primary w-100"
+                style="pointer-events: auto; position: relative; z-index: 3;">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 - Resume Builder -->
+        <div class="col-lg-4 col-md-6" data-category="fullstack web">
+          <div class="project-card">
+            <div class="project-img-container">
+              <img src="images/resume-fetch.png" class="project-img" alt="Resume Builder">
+            </div>
+            <div class="card-body p-4">
+              <span class="project-date">2025</span>
+              <h3 class="mt-3 mb-3 fw-bold">Resume Builder</h3>
+              <p class="text-muted mb-4">
+                A dynamic web application that allows users to create, customize and download professional resumes
+                with multiple templates and real-time preview.
+              </p>
+              <div class="mb-4">
+                <span class="tech-badge">React</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">JSON</span>
+              </div>
+              <a href="resume-fetch.html" class="btn btn-outline-primary w-100">
+                <i class="bi bi-eye me-1"></i> View Project
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  <!-- Bootstrap JS and dependencies -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="https://www.linkedin.com/in/igmsahil/" class="social-icon"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/Sahilr2501" class="social-icon"><i class="bi bi-github"></i></a>
+          <a href="mailto:sahilmondal9879@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Add this to your existing script section
+    document.querySelectorAll('a.btn').forEach(button => {
+      button.addEventListener('click', function (e) {
+        if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
+          e.preventDefault();
+        }
+        // Allow normal link behavior otherwise
+      });
+    });
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('[data-category]');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+
+        const filterValue = this.getAttribute('data-filter');
+
+        // Filter projects
+        projectCards.forEach(card => {
+          const categories = card.getAttribute('data-category').split(' ');
+
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>

@@ -1,132 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Website</title>
-  <style>
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-    .navbar {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    #home {
-        background: linear-gradient(rgba(52, 58, 64, 0.8), rgba(52, 58, 64, 0.8)), url('background.jpg') no-repeat center center/cover;
-        color: #f8f9fa;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    #home h1 {
-        animation: fadeInDown 2s;
-    }
-    #home p {
-        animation: fadeInUp 2s;
-    }
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Mondal - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --dark-green: #181c14;
+            --dark-gray: #3c3d37;
+            --sage-green: #697565;
+            --cream: #ecdfcc;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--dark-gray);
+            background-color: #f8f9fa;
+            line-height: 1.6;
         }
-    }
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
+
+        .navbar {
+            background-color: var(--dark-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(24, 28, 20, 0.95) 0%, rgba(60, 61, 55, 0.95) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-    }
-    .footer {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 1rem;
-        text-align: center;
-    }
-    .footer a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .footer a:hover {
-        text-decoration: underline;
-    }
-    .social-icons a {
-        margin: 0 10px;
-        color: #ffffff;
-        font-size: 24px;
-        transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-        color: #007bff;
-    }
-  </style>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(236, 223, 204, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .btn-primary {
+            background-color: var(--sage-green);
+            border-color: var(--sage-green);
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(105, 117, 101, 0.3);
+        }
+
+        .btn-outline-light {
+            color: var(--cream);
+            border-color: var(--cream);
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--cream);
+            color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(105, 117, 101, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--sage-green);
+            font-size: 1.75rem;
+        }
+
+        .footer {
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(236, 223, 204, 0.1);
+            color: var(--cream);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-icon:hover {
+            background-color: var(--cream);
+            color: var(--dark-green);
+            transform: translateY(-3px);
+        }
+
+        .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active.nav-link::after {
+            width: 100%;
+        }
+
+        .text-sage {
+            color: var(--sage-green);
+        }
+
+        .bg-sage {
+            background-color: var(--sage-green);
+        }
+
+        .bg-cream {
+            background-color: var(--cream);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background-color: var(--sage-green);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand">Sahil Mondal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutme.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="projects.html">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="skills.html">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="certificates.html">Certificate</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center">
+                <i class="bi bi-code-slash me-2"></i>
+                Sahil Mondal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutme.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificates.html">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-3 fw-bold mb-4">Hello, I'm <span class="text-sage">Sahil Mondal</span></h1>
+                    <p class="lead mb-5" style="max-width: 500px;">Full Stack Developer specializing in creating modern,
+                        responsive web applications with clean code and intuitive user experiences.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="projects.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-code-slash me-2"></i>View Projects
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-chat-dots me-2"></i>Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="text-center floating">
+                        <i class="bi bi-laptop text-sage" style="font-size: 20rem; opacity: 0.2;"></i>
+                    </div>
                 </div>
             </div>
-        </nav>
-        
-        <!-- Hero Section -->
-        <section id="home" class="text-center text-white d-flex align-items-center" style="height: 90vh;">
-            <div class="container">
-                <h1 class="display-4">Welcome to My Portfolio</h1>
-                <p class="lead mt-4">I'm Sahil Mondal, a passionate Web Developer.</p>
-                <p class="lead">Crafting beautiful and functional web experiences.</p>
-                <a href="projects.html" class="btn btn-primary btn-lg mt-4">View My Work</a>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p class="mt-3">Follow me on 
-              <div class="social-icons">
-                <a href="https://www.instagram.com/ig.msahil/" class="bi bi-instagram"></a>
-                <a href="https://x.com/Sahilm9879" class="bi bi-twitter"></a>
-                <a href="https://www.linkedin.com/in/igmsahil/" class="bi bi-linkedin"></a>
+    <!-- Skills Section -->
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold section-title">My <span class="text-sage">Expertise</span></h2>
+                <p class="text-muted mt-4">Technologies I work with to create exceptional digital experiences</p>
             </div>
-            </p>
-        </footer>
-    </div>
-    
-    <!-- Bootstrap JS and dependencies -->
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-code-square"></i>
+                        </div>
+                        <h3 class="mb-3">Frontend Development</h3>
+                        <p class="text-muted">Crafting beautiful, responsive interfaces with modern frameworks and best
+                            practices.</p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2 ">HTML5</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">CSS3</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">JavaScript</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">React</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white mb-2">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-server"></i>
+                        </div>
+                        <h3 class="mb-3">Backend Development</h3>
+                        <p class="text-muted">Building robust server-side applications and APIs with efficient
+                            architectures.</p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">Node.js</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">Express</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">PHP</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">REST APIs</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white mb-2">Authentication</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-database"></i>
+                        </div>
+                        <h3 class="mb-3">Database & Tools</h3>
+                        <p class="text-muted">Managing data efficiently and using the right tools for optimal workflow.
+                        </p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">MySQL</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">MongoDB</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">Git</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage-white me-2 mb-2">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div>
+                        <a href="https://www.linkedin.com/in/igmsahil/" class="social-icon">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-icon">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://x.com/Sahilm9879" class="social-icon">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ig.msahil/" class="social-icon">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

@@ -1,164 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Portfolio</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body {
-        background-color: #f5f5f5; /* Light background color */
-    }
-    .container {
-        background-color: #ffffff; /* White background for content */
-        border-radius: 0.5rem;
-        padding: 2rem;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    }
-    .contact-info {
-        margin-bottom: 2rem;
-    }
-    .contact-info h4 {
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-    .contact-info p {
-        margin-bottom: 0.5rem;
-    }
-    .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-    }
-    .contact-item i {
-        font-size: 1.5rem;
-        color: #007bff; /* Blue color for icons */
-        margin-right: 0.75rem;
-    }
-    .social-icons a {
-        font-size: 1.5rem;
-        color: #007bff;
-        margin: 0 0.5rem;
-        text-decoration: none;
-    }
-    .social-icons a:hover {
-        color: #0056b3; /* Darker blue on hover */
-    }
-    .footer {
-        background-color: #343a40;
-        color: #ffffff;
-        padding: 1rem;
-        text-align: center;
-    }
-    .footer a {
-        color: #ffffff;
-        text-decoration: none;
-    }
-    .footer a:hover {
-        text-decoration: underline;
-    }
-    .card {
-        height: 100%; /* Ensures all cards have the same height */
-        transition: all 0.3s ease; /* Smooth transition for all changes */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
-    }
-    .card:hover {
-        transform: scale(1.05); /* Slightly enlarge the card */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-    }
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --dark-green: #181c14;
+            --dark-gray: #3c3d37;
+            --sage-green: #697565;
+            --cream: #ecdfcc;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+        }
+
+        .navbar {
+            background-color: var(--dark-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .active.nav-link::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            background-color: var(--sage-green);
+            color: white;
+            padding: 5rem 0;
+            background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
+        }
+
+        .contact-card {
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            background-color: white;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            background-color: rgba(105, 117, 101, 0.1);
+            color: var(--sage-green);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background-color: var(--sage-green);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--sage-green);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--sage-green);
+            color: var(--sage-green);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(236, 223, 204, 0.1);
+            color: var(--cream);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-icon:hover {
+            background-color: var(--sage-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-title {
+            color: var(--dark-green);
+        }
+
+        .contact-card:hover .contact-title {
+            color: var(--sage-green);
+        }
+    </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand">Sahil Mondal</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutme.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="certificates.html">Certificate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="contact.html">Contact</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center">
+                <i class="bi bi-code-slash me-2"></i>
+                Sahil Mondal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutme.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificates.html">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Contact Us</h1>
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <h4>Get in Touch</h4>
-            <p class="text-center">Feel free to reach out to us using the contact details below.</p>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-house-door"></i> Address</h5>
-                            <p class="card-text">03, Dholikui, Opp. Nanapandya ni pole, Petlad, Anand, Gujarat</p>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Contact Me</h1>
+            <p class="lead mb-0">Let's connect and discuss opportunities</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title fw-bold mb-5">Get In Touch</h2>
+            <div class="row g-4">
+                <!-- Address Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h3 class="contact-title fw-bold mb-3">Address</h3>
+                            <p class="text-muted mb-4">03, Dholikui, Opp. Nanapandya ni pole, Petlad, Anand, Gujarat</p>
+                            <a href="https://maps.app.goo.gl/hmWU5JtFqka1V9bKA" target="_blank"
+                                class="btn btn-outline-primary w-100">
+                                <i class="bi bi-map me-1"></i> View on Map
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-telephone"></i> Phone</h5>
-                            <p class="card-text">+91 9023608908</p>
+
+                <!-- Phone Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h3 class="contact-title fw-bold mb-3">Phone</h3>
+                            <p class="text-muted mb-4">+91 9023608908</p>
+                            <a href="tel:+919023608908" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-telephone-outbound me-1"></i> Call Now
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="bi bi-envelope"></i> Email</h5>
-                            <p class="card-text">sahilmondal9879@gmail.com</p>
+
+                <!-- Email Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm contact-card">
+                        <div class="card-body text-center p-4">
+                            <div class="contact-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <h3 class="contact-title fw-bold mb-3">Email</h3>
+                            <p class="text-muted mb-4">sahilmondal9879@gmail.com</p>
+                            <a href="mailto:sahilmondal9879@gmail.com" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-send me-1"></i> Send Email
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <h5 class="mt-4 text-center">Follow Us</h5>
-            <div class="text-center social-icons">
-                <a href="https://www.instagram.com/ig.msahil/" class="bi bi-instagram"></a>
-                <a href="https://x.com/Sahilm9879" class="bi bi-twitter"></a>
-                <a href="https://www.linkedin.com/in/igmsahil/" class="bi bi-linkedin"></a>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>Developed by <a href="https://www.linkedin.com/in/igmsahil/">Sahil Mondal</a></p>
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Sahilr2501" class="text-white me-3"><i class="bi bi-github"></i></a>
+                    <a href="mailto:sahilmondal9879@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

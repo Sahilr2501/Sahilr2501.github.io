@@ -1,86 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe Game</title>
+    <title>Tic Tac Toe - Portfolio</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        .section-title {
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #333;
+        :root {
+            --dark-green: #181c14;
+            --dark-gray: #3c3d37;
+            --sage-green: #697565;
+            --cream: #ecdfcc;
+            --light-bg: #f8f9fa;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+            padding-top: 56px;
+        }
+
+        .navbar {
+            background-color: var(--dark-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin: 2rem 0;
+            color: var(--dark-green);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--sage-green);
+            bottom: 0;
+            left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: var(--sage-green);
+            border-radius: 50%;
+        }
+
+        .tech-badge {
+            background-color: rgba(105, 117, 101, 0.1);
+            color: var(--sage-green);
+            border-radius: 20px;
+            padding: 0.35rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
         footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            background-color: var(--sage-green);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
+        }
+
+        .game-preview {
+            max-width: 400px;
+            margin: 2rem auto;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Tic Tac Toe Game</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold" href="#">Tic Tac Toe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="projects.html">Projects</a>
+                        <a class="nav-link" href="projects.html"><i class="bi bi-arrow-left me-1"></i> Back to
+                            Projects</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Tic Tac Toe Game</h1>
+            <p class="lead mb-0">A classic game built with modern web technologies</p>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="container mt-5 pt-5">
+    <main class="container mb-5">
         <section id="overview">
-            <h2 class="section-title">Overview</h2>
-            <p>The Tic Tac Toe game is a classic two-player game implemented as a web application. The game allows players to take turns marking spaces in a 3x3 grid, with the goal of aligning three of their marks (either "X" or "O") in a row, column, or diagonal. The application is designed to be simple, interactive, and visually appealing, providing an engaging experience for users of all ages.</p>
+            <h2 class="section-title fw-bold">Overview</h2>
+            <p class="lead">The Tic Tac Toe game is a classic two-player game implemented as a web application. The game
+                allows players to take turns marking spaces in a 3x3 grid, with the goal of aligning three of their
+                marks (either "X" or "O") in a row, column, or diagonal. The application is designed to be simple,
+                interactive, and visually appealing, providing an engaging experience for users of all ages.</p>
         </section>
 
         <section id="features">
-            <h2 class="section-title">Features</h2>
-            <ul class="list-unstyled">
-                <li><strong>Interactive Game Board:</strong> A 3x3 grid where players can click to place their mark ("X" or "O"). The grid dynamically updates based on player input.</li>
-                <li><strong>Player Turns:</strong> The game alternates turns between Player X and Player O, with a visual glow effect indicating the current player’s turn.</li>
-                <li><strong>Winning Logic:</strong> The game detects winning combinations (rows, columns, or diagonals) and displays a congratulatory message when a player wins.</li>
-                <li><strong>Draw Detection:</strong> The game identifies and announces a draw when all cells are filled without a winner.</li>
-                <li><strong>Responsive Design:</strong> The game board is centered and responsive, ensuring it is displayed correctly on various screen sizes and devices.</li>
-                <li><strong>Celebratory Messages:</strong> Upon winning, the game displays an exciting congratulatory message with styled text to enhance the celebration.</li>
-                <li><strong>Game Restart:</strong> A restart button allows players to reset the game board and start a new game without refreshing the page.</li>
+            <h2 class="section-title fw-bold">Features</h2>
+            <ul class="feature-list list-unstyled">
+                <li class="mb-3"><strong>Interactive Game Board:</strong> A 3x3 grid where players can click to place
+                    their mark ("X" or "O"). The grid dynamically updates based on player input.</li>
+                <li class="mb-3"><strong>Player Turns:</strong> The game alternates turns between Player X and Player O,
+                    with a visual glow effect indicating the current player's turn.</li>
+                <li class="mb-3"><strong>Winning Logic:</strong> The game detects winning combinations (rows, columns,
+                    or diagonals) and displays a congratulatory message when a player wins.</li>
+                <li class="mb-3"><strong>Draw Detection:</strong> The game identifies and announces a draw when all
+                    cells are filled without a winner.</li>
+                <li class="mb-3"><strong>Responsive Design:</strong> The game board is centered and responsive, ensuring
+                    it is displayed correctly on various screen sizes and devices.</li>
+                <li class="mb-3"><strong>Celebratory Messages:</strong> Upon winning, the game displays an exciting
+                    congratulatory message with styled text to enhance the celebration.</li>
+                <li class="mb-3"><strong>Game Restart:</strong> A restart button allows players to reset the game board
+                    and start a new game without refreshing the page.</li>
             </ul>
         </section>
 
         <section id="technologies">
-            <h2 class="section-title">Technologies Used</h2>
-            <ul class="list-unstyled">
-                <li><strong>HTML:</strong> Provides the structure and content of the game board.</li>
-                <li><strong>CSS:</strong> Styles the game board, cells, and user interface elements, including dynamic glow effects and celebratory messages.</li>
-                <li><strong>JavaScript:</strong> Handles game logic, player interactions, winning conditions, and updates to the user interface.</li>
-            </ul>
-        </section>
-        
-        <section id="future-enhancements">
-            <h2 class="section-title">Future Enhancements</h2>
-            <ul class="list-unstyled">
-                <li><strong>AI Opponent:</strong> Implement a computer-controlled opponent with various difficulty levels.</li>
-                <li><strong>Score Tracking:</strong> Add functionality to track and display scores over multiple games.</li>
-                <li><strong>Thematic Customization:</strong> Allow users to choose different themes or skins for the game board.</li>
-            </ul>
+            <h2 class="section-title fw-bold">Technologies Used</h2>
+            <div class="mb-4">
+                <span class="tech-badge"><i class="bi bi-filetype-html me-1"></i> HTML5</span>
+                <span class="tech-badge"><i class="bi bi-filetype-css me-1"></i> CSS3</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
+            </div>
+            <p>The game leverages core web technologies to deliver a responsive and interactive gaming experience.</p>
         </section>
 
-        <section id="contributing">
-            <h2 class="section-title">Contributing</h2>
-            <p>Contributions are welcome! Please open an issue or submit a pull request to contribute to the project.</p>
+        <section id="future-enhancements">
+            <h2 class="section-title fw-bold">Future Enhancements</h2>
+            <ul class="feature-list list-unstyled">
+                <li class="mb-3"><strong>AI Opponent:</strong> Implement a computer-controlled opponent with various
+                    difficulty levels.</li>
+                <li class="mb-3"><strong>Score Tracking:</strong> Add functionality to track and display scores over
+                    multiple games.</li>
+                <li class="mb-3"><strong>Thematic Customization:</strong> Allow users to choose different themes or
+                    skins for the game board.</li>
+            </ul>
         </section>
     </main>
 
-    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3" target="_blank"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Sahilr2501" class="text-white me-3" target="_blank"><i
+                            class="bi bi-github"></i></a>
+                    <a href="mailto:sahilmondal9879@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
