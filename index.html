@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificates - Portfolio</title>
+    <title>Sahil Mondal - Portfolio</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -15,20 +15,124 @@
             --dark-gray: #3c3d37;
             --sage-green: #697565;
             --cream: #ecdfcc;
-            --light-bg: #f8f9fa;
-            --google-blue: #4285F4;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light-bg);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             color: var(--dark-gray);
+            background-color: #f8f9fa;
+            line-height: 1.6;
         }
 
         .navbar {
             background-color: var(--dark-green);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(24, 28, 20, 0.95) 0%, rgba(60, 61, 55, 0.95) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(236, 223, 204, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .btn-primary {
+            background-color: var(--sage-green);
+            border-color: var(--sage-green);
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(105, 117, 101, 0.3);
+        }
+
+        .btn-outline-light {
+            color: var(--cream);
+            border-color: var(--cream);
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--cream);
+            color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(105, 117, 101, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--sage-green);
+            font-size: 1.75rem;
+        }
+
+        .footer {
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(236, 223, 204, 0.1);
+            color: var(--cream);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .social-icon:hover {
+            background-color: var(--cream);
+            color: var(--dark-green);
+            transform: translateY(-3px);
         }
 
         .nav-link {
@@ -58,155 +162,49 @@
             width: 100%;
         }
 
-        .hero-section {
-            background-color: var(--sage-green);
-            color: white;
-            padding: 5rem 0;
-            background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
-        }
-
-        .certificate-card {
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            height: 100%;
-            background-color: white;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .certificate-img-container {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            background-color: #f8f9fa;
-            /* Fallback background */
-        }
-
-        .certificate-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Changed from cover to contain for better certificate display */
-            transition: transform 0.5s ease;
-            background-color: white;
-            padding: 10px;
-        }
-
-        .certificate-card:hover .certificate-img {
-            transform: scale(1.05);
-        }
-
-        .certificate-date {
-            background-color: var(--sage-green);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 0.5rem;
-        }
-
-        .issuer-badge {
-            background-color: rgba(105, 117, 101, 0.1);
+        .text-sage {
             color: var(--sage-green);
-            border-radius: 20px;
-            padding: 0.35rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
         }
 
-        .google-cloud-badge {
-            background-color: rgba(66, 133, 244, 0.1);
-            color: var(--google-blue);
-            border: 1px solid rgba(66, 133, 244, 0.2);
+        .bg-sage {
+            background-color: var(--sage-green);
+        }
+
+        .bg-cream {
+            background-color: var(--cream);
         }
 
         .section-title {
             position: relative;
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
+            display: inline-block;
         }
 
-        .section-title:after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
             background-color: var(--sage-green);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
-        .btn-outline-primary {
-            border-color: var(--sage-green);
-            color: var(--sage-green);
-            transition: all 0.3s ease;
+        .floating {
+            animation: floating 3s ease-in-out infinite;
         }
 
-        .btn-outline-primary:hover {
-            background-color: var(--sage-green);
-            color: white;
-            transform: translateY(-2px);
-        }
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
 
-        footer {
-            background-color: var(--dark-green);
-            color: var(--cream);
-            padding: 2rem 0;
-        }
+            50% {
+                transform: translateY(-10px);
+            }
 
-        .social-icon {
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-icon:hover {
-            color: var(--sage-green) !important;
-            transform: translateY(-3px);
-        }
-
-        .certificate-title {
-            color: var(--dark-green);
-            transition: color 0.3s ease;
-        }
-
-        .certificate-card:hover .certificate-title {
-            color: var(--sage-green);
-        }
-
-        .coming-soon-card {
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed var(--sage-green) !important;
-        }
-
-        /* Google Cloud specific styles */
-        .google-cloud-card {
-            border-left: 4px solid var(--google-blue);
-        }
-
-        .google-cloud-card .certificate-img-container {
-            background-color: rgba(66, 133, 244, 0.05);
-        }
-
-        /* Ensure images are visible */
-        .certificate-img-container img {
-            display: block;
-            max-width: 100%;
-            height: auto;
+            100% {
+                transform: translateY(0px);
+            }
         }
     </style>
 </head>
@@ -226,7 +224,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aboutme.html">About</a>
@@ -238,7 +236,7 @@
                         <a class="nav-link" href="skills.html">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="certificates.html">Certificates</a>
+                        <a class="nav-link" href="certificates.html">Certificates</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -249,411 +247,88 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section text-center">
+    <section class="hero-section">
+        <div class="hero-pattern"></div>
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">My Certifications</h1>
-            <p class="lead mb-0">Professional achievements and completed courses</p>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section class="py-5 bg-light">
-        <div class="container py-5">
-            <h2 class="section-title fw-bold mb-5">Certification Highlights</h2>
-            <div class="row g-4">
-                <!-- Certificate 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <div class="certificate-img-container">
-                            <img src="images/ai.jpg" class="certificate-img" alt="AI Certificate">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>May 2024</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Introduction to AI</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Successfully completed the AI course covering fundamental concepts of artificial
-                                intelligence.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge">Great Learning Academy</span>
-                            </div>
-                            <a href="images/ai.jpg" class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-3 fw-bold mb-4">Hello, I'm <span class="text-sage">Sahil Mondal</span></h1>
+                    <p class="lead mb-5" style="max-width: 500px;">Full Stack Developer specializing in creating modern,
+                        responsive web applications with clean code and intuitive user experiences.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="projects.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-code-slash me-2"></i>View Projects
+                        </a>
+                        <a href="contact.html" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-chat-dots me-2"></i>Contact Me
+                        </a>
                     </div>
                 </div>
-
-                <!-- Certificate 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <div class="certificate-img-container">
-                            <img src="images/reactjs.jpg" class="certificate-img" alt="React JS Certificate">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>May 2024</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">React JS Tutorial</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Completed comprehensive React JS training, mastering component-based architecture and
-                                state management.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge">Great Learning Academy</span>
-                            </div>
-                            <a href="images/reactjs.jpg" class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Data Structure in C.jpg" class="certificate-img"
-                                alt="Data Structures Certificate">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>June 2024</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Data Structures in C</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Earned certification demonstrating proficiency in algorithms and data organization using
-                                C programming.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge">Great Learning Academy</span>
-                            </div>
-                            <a href="images/Data Structure in C.jpg" class="btn btn-outline-primary w-100"
-                                target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <div class="certificate-img-container">
-                            <img src="images/js.png" class="certificate-img" alt="JavaScript Certificate">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>August 2024</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Mastering JavaScript</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Certified in JavaScript fundamentals, including ES6+ features, DOM manipulation, and
-                                async programming.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge">Geekster</span>
-                            </div>
-                            <a href="images/js.png" class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card">
-                        <div class="certificate-img-container">
-                            <img src="images/aws.jpg" class="certificate-img" alt="AWS Certificate">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>August 2024</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">AWS For Beginners</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Completed AWS fundamentals course covering cloud computing concepts and core services.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge">Great Learning Academy</span>
-                            </div>
-                            <a href="images/aws.jpg" class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Empty Card for Future Certificates -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-sm coming-soon-card">
-                        <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                            <i class="bi bi-plus-circle text-primary mb-3" style="font-size: 2.5rem;"></i>
-                            <h5 class="text-primary">More Coming Soon</h5>
-                            <p class="text-muted">Currently pursuing additional certifications to expand my skill set.
-                            </p>
-                        </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="text-center floating">
+                        <i class="bi bi-laptop text-sage" style="font-size: 20rem; opacity: 0.2;"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Google Cloud Certificates Section -->
-    <section class="py-5">
+    <!-- Skills Section -->
+    <section class="py-5 bg-white">
         <div class="container py-5">
-            <h2 class="section-title fw-bold mb-5">Google Cloud Certifications</h2>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold section-title">My <span class="text-sage">Expertise</span></h2>
+                <p class="text-muted mt-4">Technologies I work with to create exceptional digital experiences</p>
+            </div>
             <div class="row g-4">
-                <!-- Google Cloud Certificate 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Skills Boost Arcade Base Camp April 2025.png" class="certificate-img"
-                                alt="Google Cloud Arcade Base Camp">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-code-square"></i>
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Skills Boost Arcade Base Camp</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Completed the Google Cloud Skills Boost Arcade Base Camp program covering fundamental
-                                cloud concepts.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14541598"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
+                        <h3 class="mb-3">Frontend Development</h3>
+                        <p class="text-muted">Crafting beautiful, responsive interfaces with modern frameworks and best
+                            practices.</p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">HTML5</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">CSS3</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">JavaScript</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">React</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage mb-2 text-white">Bootstrap</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Google Cloud Certificate 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Level 1 Application Development and Security with GCP.png"
-                                class="certificate-img" alt="Google Cloud Level 1">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-server"></i>
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Application Development & Security (Level 1)
-                                </h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Earned Level 1 certification in Application Development and Security with Google Cloud
-                                Platform.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14578805"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
+                        <h3 class="mb-3">Backend Development</h3>
+                        <p class="text-muted">Building robust server-side applications and APIs with efficient
+                            architectures.</p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">Node.js</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">Express</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">PHP</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">REST APIs</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage mb-2 text-white">Authentication</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Google Cloud Certificate 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Level 2 Cloud Infrastructure & API Essentials.png" class="certificate-img"
-                                alt="Google Cloud Level 2">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <div class="skill-icon">
+                            <i class="bi bi-database"></i>
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Cloud Infrastructure & API (Level 2)</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Achieved Level 2 certification in Cloud Infrastructure and API Essentials on Google
-                                Cloud Platform.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14602991"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Cloud Certificate 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Level 3 The Arcade Quiz.png" class="certificate-img"
-                                alt="Google Cloud Level 3">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">The Arcade Quiz (Level 3)</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Completed Level 3 certification by successfully passing The Arcade Quiz on Google Cloud
-                                Platform.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14550052"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Cloud Certificate 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Skills Boost Arcade Trivia April 2025 Week 1.png" class="certificate-img"
-                                alt="Google Cloud Trivia Week 1">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Arcade Trivia Week 1</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Successfully completed Week 1 of the Google Cloud Skills Boost Arcade Trivia challenge.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14580981"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Cloud Certificate 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Skills Boost Arcade Trivia April 2025 Week 2.png" class="certificate-img"
-                                alt="Google Cloud Trivia Week 2">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Arcade Trivia Week 2</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Successfully completed Week 2 of the Google Cloud Skills Boost Arcade Trivia challenge.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14669327"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Cloud Certificate 7 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Skills Boost Arcade Trivia April 2025 Week 3.png" class="certificate-img"
-                                alt="Google Cloud Trivia Week 3">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Arcade Trivia Week 3</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Successfully completed Week 3 of the Google Cloud Skills Boost Arcade Trivia challenge.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14897313"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Cloud Certificate 8 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="certificate-card google-cloud-card">
-                        <div class="certificate-img-container">
-                            <img src="images/Arcade TechCare.png" class="certificate-img" alt="Google Cloud TechCare">
-                            <div class="position-absolute top-0 end-0 bg-white text-dark px-3 py-1 rounded-bl">
-                                <small>April 2025</small>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="bi bi-award-fill text-primary fs-4 me-2"></i>
-                                <h3 class="mb-0 fw-bold certificate-title">Arcade TechCare</h3>
-                            </div>
-                            <p class="text-muted mb-4">
-                                Completed the Google Cloud Skills Boost Arcade TechCare program for cloud professionals.
-                            </p>
-                            <div class="mb-4">
-                                <span class="issuer-badge google-cloud-badge">Google Cloud</span>
-                            </div>
-                            <a href="https://www.cloudskillsboost.google/public_profiles/b582ce3a-df02-4373-9f36-2002fc8b579c/badges/14663057"
-                                class="btn btn-outline-primary w-100" target="_blank">
-                                <i class="bi bi-eye me-1"></i> View Certificate
-                            </a>
+                        <h3 class="mb-3">Database & Tools</h3>
+                        <p class="text-muted">Managing data efficiently and using the right tools for optimal workflow.
+                        </p>
+                        <div class="mt-4">
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">MySQL</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">MongoDB</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">Git</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage me-2 mb-2 text-white">VS Code</span>
+                            <span class="badge bg-sage bg-opacity-10 text-sage mb-2 text-white">Postman</span>
                         </div>
                     </div>
                 </div>
@@ -662,19 +337,27 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3 social-icon"
-                        target="_blank"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://github.com/Sahilr2501" class="text-white me-3 social-icon" target="_blank"><i
-                            class="bi bi-github"></i></a>
-                    <a href="mailto:sahilmondal9879@gmail.com" class="text-white social-icon"><i
-                            class="bi bi-envelope"></i></a>
+                    <div>
+                        <a href="https://www.linkedin.com/in/igmsahil/" class="social-icon">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-icon">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://x.com/Sahilm9879" class="social-icon">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ig.msahil/" class="social-icon">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
