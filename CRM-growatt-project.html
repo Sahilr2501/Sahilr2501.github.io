@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <title>CRM for Growatt InfoSystem - Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --dark-green: #181c14;
+            --dark-gray: #3c3d37;
+            --sage-green: #697565;
+            --cream: #ecdfcc;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-gray);
+            padding-top: 56px;
+        }
+
+        .navbar {
+            background-color: var(--dark-green);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            color: var(--cream) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin: 2rem 0;
+            color: var(--dark-green);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--sage-green);
+            bottom: 0;
+            left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: var(--sage-green);
+            border-radius: 50%;
+        }
+
+        .tech-badge {
+            background-color: rgba(105, 117, 101, 0.1);
+            color: var(--sage-green);
+            border-radius: 20px;
+            padding: 0.35rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        footer {
+            background-color: var(--dark-green);
+            color: var(--cream);
+            padding: 2rem 0;
+        }
+
+        .hero-section {
+            background-color: var(--sage-green);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            background-image: linear-gradient(rgba(105, 117, 101, 0.9), rgba(105, 117, 101, 0.9));
+        }
+
+        .project-preview {
+            max-width: 600px;
+            margin: 2rem auto;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">CRM for Growatt InfoSystem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html"><i class="bi bi-arrow-left me-1"></i> Back to
+                            Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">CRM for Growatt InfoSystem</h1>
+            <p class="lead mb-0">Creative solutions for UI/UX, logo, and more worldwide</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mb-5">
+        <section id="overview">
+            <h2 class="section-title fw-bold">Overview</h2>
+            <p class="lead">Growatt InfoSystem provies a wide range of graprhic design services to clients across the
+                globe. From logos and banners to brochures and labels, we deliver creative solutions tailored to meet
+                your needs.</p>
+        </section>
+
+        <section id="features">
+            <h2 class="section-title fw-bold">Key Features</h2>
+            <ul class="feature-list list-unstyled">
+                <h3>Admin Side:</h3>
+                <li><strong>Admin Authentication & Security:</strong> Secure access with JWT-based authentication and
+                    role-based control.</li>
+                <li><strong>Admin Interactive Dashboard:</strong> Centralized panel for managing content, analytics, and
+                    user data.</li>
+                <li><strong>Portfolio Management:</strong> Add, update, and delete project showcases with ease.</li>
+                <li><strong>Service Pricing Management:</strong> Manage service packages, pricing tiers, and feature
+                    highlights.</li>
+                <li><strong>Career & Job Application Handling:</strong> Post job openings and manage candidate
+                    submissions with resume uploads.</li>
+                <li><strong>Team Management:</strong> Add and showcase team members and their milestone stories.</li>
+                <li><strong>Customer & Testimonial Management:</strong> Display client feedback and logos dynamically
+                    across the platform.</li>
+                <li><strong>Contact Information Customization:</strong> Update company contact details, social links,
+                    and embedded map easily.</li>
+                <li><strong>Admin Account Management:</strong> Manage admin profiles, reset passwords, and control
+                    access levels.</li>
+                <h3>User Side:</h3>
+                <li><strong>Interactive Portfolio Showcase:</strong> Engaging gallery of past projects with categories
+                    and project details.</li>
+                <li><strong>Service Management:</strong> Present all design and development services with detailed
+                    descriptions.</li>
+                <li><strong>Client Testimonials:</strong> Highlight customer reviews and success stories for brand
+                    trust.</li>
+                <li><strong>Contact & Inquiry Handling:</strong> Receive and manage user messages via contact form and
+                    database logging.</li>
+                <li><strong>Career & Job Application System:</strong> Career page with position listings and secure
+                    application submission.</li>
+                <li><strong>AI Chat System:</strong> Smart chatbot for FAQs, service queries, and instant engagement.
+                </li>
+                <li><strong>Responsive Design:</strong> Mobile-first design using ReactJS and Tailwind CSS for seamless
+                    user experience on all devices.</li>
+            </ul>
+        </section>
+
+
+        <section id="technologies">
+            <h2 class="section-title fw-bold">Technologies Used</h2>
+            <div class="mb-4">
+                <span class="tech-badge"><i class="bi bi-filetype-html me-1"></i> HTML5</span>
+                <span class="tech-badge"><i class="bi bi-filetype-css me-1"></i> CSS3</span>
+                <span class="tech-badge"><i class="bi bi-filetype-css me-1"></i> Tailwind CSS</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> JavaScript</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> React.js</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> Node.js</span>
+                <span class="tech-badge"><i class="bi bi-filetype-js me-1"></i> Express.js</span>
+                <span class="tech-badge"><i class="bi bi-database me-1"></i> MongoDB</span>
+
+            </div>
+        </section>
+
+        <section id="purpose">
+            <h2 class="section-title fw-bold">Purpose</h2>
+            <p>The purpose of Growatt InfoSystem is to deliver visually compelling and user-friendly design solutions
+                that enhance brand identity and improve user interaction. Our goal is to help businesses stand out in a
+                competitive digital landscape through innovative UI/UX and graphic design services.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2024 Sahil Mondal. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.linkedin.com/in/igmsahil/" class="text-white me-3" target="_blank"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a href="https://github.com/Sahilr2501" class="text-white me-3" target="_blank"><i
+                            class="bi bi-github"></i></a>
+                    <a href="mailto:sahilmondal9879@gmail.com" class="text-white"><i class="bi bi-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
